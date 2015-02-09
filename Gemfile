@@ -37,4 +37,12 @@ gem 'spring',        group: :development
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+group :test, :development do
+  gem 'pry-byebug'
+end
 
+gem 'foundation-rails'
+gem 'angularjs-rails'
+gem 'bower-rails'
+gem 'font-awesome-rails'
+gem 'httparty'
