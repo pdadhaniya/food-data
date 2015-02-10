@@ -3,7 +3,6 @@ app.controller('FailureCtrl', ['$scope', '$location', 'Failure',
     $scope.allFailures = Failure.allFailures;
     $scope.failureIndex = false;
     $scope.failureSingle = false;
-    $scope.googleMap = false;
     $scope.showAll = function() {
       $scope.failureIndex = true;
       $scope.failureSingle = false;
@@ -15,8 +14,7 @@ app.controller('FailureCtrl', ['$scope', '$location', 'Failure',
       $scope.failureIndex = false;
       $scope.failureSingle = true;
     };
-    $scope.showMap = function(restaurant) {
-      console.log(restaurant);
-      $scope.googleMap = true;
-    };
+    $scope.showMap = function() {
+      window.open('https://www.google.com/maps/place/' + $scope.singleRestaurant.address)
+    }
   }]);
