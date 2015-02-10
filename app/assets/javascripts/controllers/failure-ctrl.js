@@ -1,8 +1,10 @@
-app.controller('FailureCtrl', ['$scope', '$location', 'Failure',
-  function($scope, $location, Failure) {
+app.controller('FailureCtrl', ['$scope', '$location', '$routeParams', 'Failure',
+  function($scope, $location, $routeParams, Failure) {
     $scope.allFailures = Failure.allFailures;
     $scope.failureIndex = false;
     $scope.failureSingle = false;
+    $scope.zipForm = false;
+    $scope.zipResults = false;
     $scope.showAll = function() {
       $scope.failureIndex = true;
       $scope.failureSingle = false;
@@ -10,11 +12,18 @@ app.controller('FailureCtrl', ['$scope', '$location', 'Failure',
     $scope.showRestaurant = function(restaurant) {
       $scope.singleRestaurant = restaurant;
       $scope.singleViolations = restaurant.violations;
-      console.log($scope.singleRestaurant);
       $scope.failureIndex = false;
       $scope.failureSingle = true;
     };
     $scope.showMap = function() {
       window.open('https://www.google.com/maps/place/' + $scope.singleRestaurant.address)
-    }
+    };
+    $scope.searchZip = function() {
+      $scope.zipForm = true;
+      $scope.failureIndex = false;
+    };
+    $scope.submit = function(zip) {
+      $location.path("/failures/" + zip)
+      $scope.singleZip = Failure.zipFailure.query();
+    };
   }]);
