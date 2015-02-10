@@ -1,9 +1,13 @@
 <div class="row">
   <div class="small-12 columns">
-    <h1 class="text-center">Search for Inspection Failures</h1>
+    <div class="panel">
+      <h1 class="text-center">Search for Inspection Failures</h1>
+      <a ng-click="showAll()">Most Recent Failures</a><br>
+      <a ng-click="">Search by Zip Code</a>
+    </div>
   </div>
 </div>
-<div class="row">
+<div class="row" ng-show="failureIndex">
   <div class="small-12 columns">
     <table>
       <tr>
@@ -11,10 +15,10 @@
         <th>Address</th>
         <th>Violation</th>
       </tr>
-      <tr>
-        <td>Test</td>
-        <td>Test</td>
-        <td>Test</td>
+      <tr ng-repeat="restaurant in allFailures">
+        <td>{{restaurant.dba_name}}</td>
+        <td>{{restaurant.address}}</td>
+        <td>{{restaurant.violations}}</td>
       </tr>
 
     </table>
