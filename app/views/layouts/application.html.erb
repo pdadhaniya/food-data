@@ -12,6 +12,27 @@
   </head>
 
   <body ng-app="foodDataApp">
+    <nav class="top-bar" data-topbar role="navigation">
+      <ul class="title-area">
+        <li class="name">
+          <h1><a href="#/">Health Violation Data</a></h1>
+        </li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
+
+      <section class="top-bar-section">
+        <ul class="right">
+          <li class="has-dropdown">
+            <a href="#">Menu</a>
+            <ul class="dropdown">
+              <li><a href="#">First link</a></li>
+              <li><a href="#">Second link</a></li>
+            </ul>
+          </li>
+        </ul>
+
+      </section>
+    </nav>
 
     <%= yield %>
     <%= javascript_include_tag "application" %>
