@@ -23,12 +23,21 @@
     </table>
   </div>
 </div>
+<!-- <div class="row" ng-show="googleMap">
+  <iframe
+          width="400"
+          height="300"
+          frameborder="0" style="border:0"
+          src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCB3Ca4V0Po_5SqQMOwdHXohBIgiGFIla8
+          &q=1001+W+15th+ST,Chicago+IL">
+  </iframe>
+</div> -->
 <div class="row" ng-show="failureSingle">
   <div class="small-12 columns">
-    <p>{{singleRestaurant.dba_name}}</p>
-    <p>{{singleRestaurant.address}}</p>
-    <p>{{singleRestaurant.city}}, {{singleRestaurant.state}}  {{singleRestaurant.zip}}</p>
-    <p>Inspection Date: {{singleRestaurant.inspection_date.slice(0,10)}}</p>
+    <p>{{singleRestaurant.dba_name}}<br>
+    {{singleRestaurant.address}}, {{singleRestaurant.city}}, {{singleRestaurant.state}}  {{singleRestaurant.zip}}<br>
+    Inspection Date: {{singleRestaurant.inspection_date.slice(0,10)}}<br>
+    <a href="https://www.google.com/maps" target="_blank">See Map</a></p>
     <p>Violations:</p>
     <div ng-repeat="violation in singleViolations">
       <p>{{violation}}</p>
