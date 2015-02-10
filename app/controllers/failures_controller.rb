@@ -1,6 +1,15 @@
 class FailuresController < ApplicationController
   def index
     @response = HTTParty.get('https://data.cityofchicago.org/resource/4ijn-s7e5.json?$limit=1000&results=Fail')
-    render json: @response
+    @complete_response = []
+    @response.each do |record|
+      @complete_response << record if record["violations"]
+    end
+    @proper_response = []
+    @complete_response.each do |record|
+      record["violations"] = record["violations"].titleize
+    end
+    # binding.pry
+    render json: @complete_response
   end
 end
