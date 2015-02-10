@@ -13,14 +13,24 @@
       <tr>
         <th>Name</th>
         <th>Address</th>
-        <th>Violation</th>
+        <th># of Violations</th>
       </tr>
       <tr ng-repeat="restaurant in allFailures">
         <td>{{restaurant.dba_name}}</td>
         <td>{{restaurant.address}}</td>
-        <td>{{restaurant.violations}}</td>
+        <td><a ng-click="showRestaurant(restaurant)">{{restaurant.violations.length}}</a></td>
       </tr>
-
     </table>
+  </div>
+</div>
+<div class="row" ng-show="failureSingle">
+  <div class="small-12 columns">
+    <p>{{singleRestaurant.dba_name}}</p>
+    <p>{{singleRestaurant.address}}</p>
+    <p>{{singleRestaurant.city}}, {{singleRestaurant.state}}  {{singleRestaurant.zip}}</p>
+    <p>Violations:</p>
+    <div ng-repeat="violation in singleViolations">
+      <p>{{violation}}</p>
+    </div>
   </div>
 </div>

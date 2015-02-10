@@ -8,6 +8,7 @@ class FailuresController < ApplicationController
     @proper_response = []
     @complete_response.each do |record|
       record["violations"] = record["violations"].titleize
+      record["violations"] = record["violations"].split("|").sort
     end
     # binding.pry
     render json: @complete_response
