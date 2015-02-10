@@ -6,6 +6,10 @@ app.config(['$routeProvider',
       templateUrl: "<%= asset_path('templates/home.html') %>",
       controller: "HomeCtrl"
     })
+    .when("/failures", {
+      templateUrl: "<%= asset_path('templates/failures.html') %>",
+      controller: "FailureCtrl"
+    })
     .otherwise({
       redirectTo: "/"
     })
