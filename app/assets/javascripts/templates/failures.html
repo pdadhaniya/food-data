@@ -28,6 +28,7 @@
     <p>{{singleRestaurant.dba_name}}</p>
     <p>{{singleRestaurant.address}}</p>
     <p>{{singleRestaurant.city}}, {{singleRestaurant.state}}  {{singleRestaurant.zip}}</p>
+    <p>Inspection Date: {{singleRestaurant.inspection_date.slice(0,10)}}</p>
     <p>Violations:</p>
     <div ng-repeat="violation in singleViolations">
       <p>{{violation}}</p>
