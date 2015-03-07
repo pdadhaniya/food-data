@@ -10,13 +10,11 @@ class FailuresController < ApplicationController
       record["violations"] = record["violations"].titleize
       record["violations"] = record["violations"].split("|").sort
     end
-    # binding.pry
     render json: @complete_response
   end
 
   def show
     @response = HTTParty.get("https://data.cityofchicago.org/resource/4ijn-s7e5.json?$limit=1000&results=Fail&zip="+params[:id])
-    # binding.pry
     render json: @response
   end
 end

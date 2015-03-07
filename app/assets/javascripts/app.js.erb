@@ -12,7 +12,7 @@ app.config(['$routeProvider',
     })
     .when("/failures/:id", {
       templateUrl: "<%= asset_path('templates/zip.html') %>",
-      controller: "FailureCtrl"
+      controller: "ZipCtrl"
     })
     .otherwise({
       redirectTo: "/"
