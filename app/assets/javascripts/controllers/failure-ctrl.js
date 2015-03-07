@@ -8,6 +8,7 @@ app.controller('FailureCtrl', ['$scope', '$location', '$routeParams', 'Failure',
     $scope.showAll = function() {
       $scope.failureIndex = true;
       $scope.failureSingle = false;
+      $scope.zipForm = false;
     };
     $scope.showRestaurant = function(restaurant) {
       $scope.singleRestaurant = restaurant;
