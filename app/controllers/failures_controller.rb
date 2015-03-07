@@ -13,8 +13,13 @@ class FailuresController < ApplicationController
     render json: @complete_response
   end
 
-  def show
+  # def show
+  #   @response = HTTParty.get("https://data.cityofchicago.org/resource/4ijn-s7e5.json?$limit=1000&results=Fail&zip="+params[:id])
+  #   render json: @response
+  # end
+  def zipcode
     @response = HTTParty.get("https://data.cityofchicago.org/resource/4ijn-s7e5.json?$limit=1000&results=Fail&zip="+params[:id])
+    binding.pry
     render json: @response
   end
 end
