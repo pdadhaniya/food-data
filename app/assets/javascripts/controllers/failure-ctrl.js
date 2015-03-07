@@ -1,6 +1,6 @@
 app.controller('FailureCtrl', ['$scope', '$location', '$routeParams', 'Failure',
   function($scope, $location, $routeParams, Failure) {
-    $scope.allFailures = Failure.allFailures.query();
+    $scope.allFailures = Failure.index();
     $scope.failureIndex = false;
     $scope.failureSingle = false;
     $scope.zipForm = false;
@@ -24,6 +24,5 @@ app.controller('FailureCtrl', ['$scope', '$location', '$routeParams', 'Failure',
     };
     $scope.submit = function(zip) {
       $location.path("/failures/" + zip)
-      // $scope.singleZip = Failure.allFailures.get({id: zip});
     };
   }]);
