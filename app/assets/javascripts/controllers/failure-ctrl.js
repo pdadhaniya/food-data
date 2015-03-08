@@ -27,9 +27,9 @@ app.controller('FailureCtrl', ['$scope', '$location', '$routeParams', 'Failure',
       $scope.dateForm = true;
       $scope.failureIndex = false;
     }
-    $scope.submit = function(zip) {
-      if (String(zip).length === 39) {
-        var date = String(zip);
+    $scope.submit = function(searchTerm) {
+      if (String(searchTerm).length === 39) {
+        var date = String(searchTerm);
         var month = date.slice(4,7);
         var day = date.slice(8,10);
         var year = date.slice(11,15);
@@ -73,10 +73,9 @@ app.controller('FailureCtrl', ['$scope', '$location', '$routeParams', 'Failure',
             break;
         }
         var finalDate = (year + "-" + mon + "-" + day);
-        console.log(finalDate);
-        // $location.path("/failures/" + )
+        $location.path("/failures/" + finalDate)
       } else {
-        $location.path("/failures/" + zip)
+        $location.path("/failures/" + searchTerm)
       }
     };
   }]);
