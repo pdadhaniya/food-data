@@ -29,53 +29,62 @@ app.controller('FailureCtrl', ['$scope', '$location', '$routeParams', 'Failure',
     }
     $scope.submit = function(searchTerm) {
       if (String(searchTerm).length === 39) {
-        var date = String(searchTerm);
-        var month = date.slice(4,7);
-        var day = date.slice(8,10);
-        var year = date.slice(11,15);
-        var mon;
-        switch (month) {
-          case "Jan":
-            mon = "01";
-            break;
-          case "Feb":
-            mon = "02";
-            break;
-          case "Mar":
-            mon = "03";
-            break;
-          case "Apr":
-            mon = "04";
-            break;
-          case "May":
-            mon = "05";
-            break;
-          case "Jun":
-            mon = "06";
-            break;
-          case "Jul":
-            mon = "07";
-            break;
-          case "Aug":
-            mon = "08";
-            break;
-          case "Sep":
-            mon = "09";
-            break;
-          case "Oct":
-            mon = "10";
-            break;
-          case "Nov":
-            mon = "11";
-            break;
-          case "Dec":
-            mon = "12";
-            break;
-        }
-        var finalDate = (year + "-" + mon + "-" + day);
-        $location.path("/failures/" + finalDate)
+        $scope.dateToSearch = $scope.dateChange(searchTerm);
+        $location.path("/failures/" + $scope.dateToSearch);
       } else {
-        $location.path("/failures/" + searchTerm)
+        $location.path("/failures/" + searchTerm);
       }
     };
+    $scope.dateChange = function(searchTerm) {
+      var date = String(searchTerm);
+      var month = date.slice(4,7);
+      var day = date.slice(8,10);
+      var year = date.slice(11,15);
+      var mon;
+      switch (month) {
+        case "Jan":
+          mon = "01";
+          break;
+        case "Feb":
+          mon = "02";
+          break;
+        case "Mar":
+          mon = "03";
+          break;
+        case "Apr":
+          mon = "04";
+          break;
+        case "May":
+          mon = "05";
+          break;
+        case "Jun":
+          mon = "06";
+          break;
+        case "Jul":
+          mon = "07";
+          break;
+        case "Aug":
+          mon = "08";
+          break;
+        case "Sep":
+          mon = "09";
+          break;
+        case "Oct":
+          mon = "10";
+          break;
+        case "Nov":
+          mon = "11";
+          break;
+        case "Dec":
+          mon = "12";
+          break;
+      }
+      var finalDate = (year + "-" + mon + "-" + day);
+      return finalDate;
+    };
   }]);
+
+
+
+
+
