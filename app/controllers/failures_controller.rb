@@ -14,7 +14,12 @@ class FailuresController < ApplicationController
   end
 
   def show
-    @response = HTTParty.get("https://data.cityofchicago.org/resource/4ijn-s7e5.json?$limit=1000&results=Fail&zip="+params[:id])
+    search = params[:id]
+    if search.length == 5
+      @response = HTTParty.get("https://data.cityofchicago.org/resource/4ijn-s7e5.json?$limit=1000&results=Fail&zip="+search)
+    elsif search.length == 10
+      @response = HTTParty.get("https://data.cityofchicago.org/resource/4ijn-s7e5.json?$limit=1000&results=Fail&inspection_date="+search+"T00:00:00")
+    end
     render json: @response
   end
 end
