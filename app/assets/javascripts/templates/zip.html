@@ -1,1 +1,6 @@
-<div>{{singleFailure}}</div>
+<div class="row" ng-show="searchFailure">
+  <div class="small-12 columns" ng-repeat="restaurant in singleFailure">
+    <p>{{restaurant.dba_name}}</p>
+  </div>
+</div>
+<!-- {{singleFailure}} -->
