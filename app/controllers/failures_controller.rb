@@ -27,6 +27,6 @@ class FailuresController < ApplicationController
       record["violations"] = record["violations"].titleize
       record["violations"] = record["violations"].split("|").sort
     end
-    render json: response
+    render json: complete_response
   end
 end

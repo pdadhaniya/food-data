@@ -1,6 +1,28 @@
 <div class="row" ng-show="searchFailure">
-  <div class="small-12 columns" ng-repeat="restaurant in singleFailure">
-    <p>{{restaurant.dba_name}}</p>
+  <div class="small-12 columns">
+    <table>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th># of Violations</th>
+      </tr>
+      <tr ng-repeat="restaurant in singleFailure">
+        <td>{{restaurant.dba_name}}</td>
+        <td>{{restaurant.address}}</td>
+        <td><a ng-click="showRestaurant(restaurant)">{{restaurant.violations.length}}</a></td>
+      </tr>
+    </table>
   </div>
 </div>
-<!-- {{singleFailure}} -->
+<div class="row" ng-show="searchSingle">
+  <div class="small-12 columns">
+    <p>{{singleRestaurant.dba_name}}<br>
+    {{singleRestaurant.address}}, {{singleRestaurant.city}}, {{singleRestaurant.state}}  {{singleRestaurant.zip}}<br>
+    Inspection Date: {{singleRestaurant.inspection_date.slice(0,10)}}<br>
+    <p>Violations:</p>
+    <div ng-repeat="violation in singleViolations">
+      <p>{{violation}}</p>
+    </div>
+    </p>
+  </div>
+</div>
