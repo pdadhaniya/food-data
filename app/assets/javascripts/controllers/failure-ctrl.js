@@ -21,10 +21,12 @@ app.controller('FailureCtrl', ['$scope', '$location', '$routeParams', 'Failure',
     };
     $scope.searchZip = function() {
       $scope.zipForm = true;
+      $scope.dateForm = false;
       $scope.failureIndex = false;
     };
     $scope.searchDate = function() {
       $scope.dateForm = true;
+      $scope.zipForm = false;
       $scope.failureIndex = false;
     }
     $scope.submit = function(searchTerm) {
