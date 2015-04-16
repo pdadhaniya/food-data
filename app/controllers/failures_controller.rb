@@ -8,7 +8,10 @@ class FailuresController < ApplicationController
     complete_response.each do |record|
       record["violations"] = record["violations"].titleize
       record["violations"] = record["violations"].split("|").sort
+      record["dba_name"] = record["dba_name"].titleize
+      record["address"] = "#{record["address"].chop}, #{record["city"]}, #{record["state"]} #{record["zip"]}"
     end
+    # binding.pry
     render json: complete_response
   end
 
