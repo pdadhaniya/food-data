@@ -9,7 +9,7 @@ app.controller('FailureCtrl', ['$scope', '$location', '$routeParams', 'Failure',
       $scope.zipForm = false;
       $scope.dateForm = false;
       $scope.failureIndex = false;
-    }
+    };
     $scope.showAll = function() {
       $scope.hideViews();
       $scope.failureIndex = true;
@@ -30,7 +30,7 @@ app.controller('FailureCtrl', ['$scope', '$location', '$routeParams', 'Failure',
     $scope.searchDate = function() {
       $scope.hideViews();
       $scope.dateForm = true;
-    }
+    };
     $scope.submit = function(searchTerm) {
       if (String(searchTerm).length === 39) {
         $scope.dateToSearch = $scope.dateChange(searchTerm);

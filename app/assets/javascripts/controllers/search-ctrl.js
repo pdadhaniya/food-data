@@ -7,5 +7,14 @@ app.controller('SearchCtrl', ['$scope', '$location', '$routeParams', 'Failure',
       $scope.singleViolations = restaurant.violations;
       $scope.searchFailure = false;
       $scope.searchSingle = true;
+    };
+    $scope.showAll = function() {
+      $location.path("/failures");
+    };
+    $scope.searchZip = function() {
+      $location.path("/failures");
+    };
+    $scope.searchDate = function() {
+      $location.path("/failures");
     }
   }]);

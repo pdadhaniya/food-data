@@ -1,3 +1,13 @@
+<div class="row">
+  <div class="small-12 columns">
+    <div class="panel">
+      <h1 class="text-center">Search for Inspection Failures</h1>
+      <a ng-click="showAll()">Most Recent Failures</a><br>
+      <a ng-click="searchZip()">Search by Zip Code</a><br>
+      <a ng-click="searchDate()">Search by Date</a>
+    </div>
+  </div>
+</div>
 <div class="row" ng-show="searchFailure">
   <div class="small-12 columns">
     <table>
@@ -25,4 +35,16 @@
     </div>
     </p>
   </div>
+</div>
+<div class="row" ng-show="zipForm">
+  <form>
+    Zip Code: <input type="text" ng-model="zip"/>
+    <input type="submit" ng-click="submit(zip)">
+  </form>
+</div>
+<div class="row" ng-show="dateForm">
+  <form>
+    Date: <input type="date" ng-model="date"/>
+    <input type="submit" ng-click="submit(date)">
+  </form>
 </div>
