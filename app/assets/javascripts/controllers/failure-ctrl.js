@@ -4,30 +4,32 @@ app.controller('FailureCtrl', ['$scope', '$location', '$routeParams', 'Failure',
     $scope.failureIndex = false;
     $scope.failureSingle = false;
     $scope.zipForm = false;
-    $scope.zipResults = false;
-    $scope.showAll = function() {
-      $scope.failureIndex = true;
+    $scope.hideViews = function () {
       $scope.failureSingle = false;
       $scope.zipForm = false;
+      $scope.dateForm = false;
+      $scope.failureIndex = false;
+    }
+    $scope.showAll = function() {
+      $scope.hideViews();
+      $scope.failureIndex = true;
     };
     $scope.showRestaurant = function(restaurant) {
       $scope.singleRestaurant = restaurant;
       $scope.singleViolations = restaurant.violations;
-      $scope.failureIndex = false;
+      $scope.hideViews();
       $scope.failureSingle = true;
     };
     $scope.showMap = function() {
       window.open('https://www.google.com/maps/place/' + $scope.singleRestaurant.address)
     };
     $scope.searchZip = function() {
+      $scope.hideViews();
       $scope.zipForm = true;
-      $scope.dateForm = false;
-      $scope.failureIndex = false;
     };
     $scope.searchDate = function() {
+      $scope.hideViews();
       $scope.dateForm = true;
-      $scope.zipForm = false;
-      $scope.failureIndex = false;
     }
     $scope.submit = function(searchTerm) {
       if (String(searchTerm).length === 39) {
