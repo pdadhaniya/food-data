@@ -9,7 +9,7 @@ class FailuresController < ApplicationController
       record["number"] = record["violations"].split("|").length
       record["violations"] = record["violations"].titleize.split("|").sort.map { |x| x.split("   ") }.flatten
       record["dba_name"] = record["dba_name"].titleize
-      record["address"] = "#{record["address"].chop}, #{record["city"]}, #{record["state"]} #{record["zip"]}"
+      record["address"] = "#{record["address"].chop.titleize}, #{record["city"].titleize}, #{record["state"]} #{record["zip"]}"
     end
 
     render json: complete_response
