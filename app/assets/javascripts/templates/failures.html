@@ -26,14 +26,16 @@
 </div>
 <div class="row" ng-show="failureSingle">
   <div class="small-12 columns">
-    <p><h3>{{singleRestaurant.dba_name}}</h3>
-    <h5>{{singleRestaurant.address}}</h5>
-    <h5>Inspection Date: {{singleRestaurant.inspection_date.slice(0,10)}}</h5>
-    <a href="" ng-click="showMap()">See Map</a><br><br>
-    <h4>Violations:</h4>
-    <div ng-repeat="violation in singleViolations">
-      <p>{{violation}}</p>
-    </div>
+    <p>
+      <h3>{{singleRestaurant.dba_name}}</h3>
+      <h5>{{singleRestaurant.address}}</h5>
+      <h5>Inspection Date: {{singleRestaurant.inspection_date.slice(0,10)}}</h5>
+      <a href="" ng-click="showMap()">See Map</a><br><br>
+      <h4>Violations:</h4>
+      <div ng-repeat="violation in singleViolations">
+        <p>{{violation}}</p>
+      </div>
+    </p>
   </div>
 </div>
 <div class="row" ng-show="zipForm">
